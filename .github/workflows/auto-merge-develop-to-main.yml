@@ -1,4 +1,4 @@
-name: Auto Merge Develop to Main
+name: Auto Create Pull Request from Develop to Main
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - develop
 
 jobs:
-  merge:
+  create-pull-request:
     runs-on: ubuntu-latest
 
     steps:
@@ -18,12 +18,15 @@ jobs:
           git config --local user.name "Ali Mohammadnia"
           git config --local user.email "alimohammadnia127@gmail.com"
 
-      - name: Merge develop into main and push
-        run: |
-          git checkout main
-          git merge develop
-          git push origin main --force
-        env:
-          ACCESS_MERGE_TOKEN: ${{ secrets.ACCESS_MERGE_TOKEN }}
-
-
+      - name: Create Pull Request from Develop to Main
+        uses: peter-evans/create-pull-request@v4
+        with:
+          token: ${{ secrets.ACCESS_MERGE_TOKEN }}
+          base: main
+          head: develop
+          title: "Auto Merge Develop into Main"
+          body: |
+            This pull request is automatically created to merge changes from the `develop` branch into the `main` branch.
+          branch: auto-pr/develop-to-main
+          assignees: "Ali Mohammadnia"
+          reviewers: "Ali Mohammadnia"
