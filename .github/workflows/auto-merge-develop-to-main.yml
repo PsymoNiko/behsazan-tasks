@@ -1,0 +1,29 @@
+name: Auto Merge Develop to Main
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Git
+        run: |
+          git config --local user.name "Ali Mohammadnia"
+          git config --local user.email "alimohammadnia127@gmail.com"
+
+      - name: Merge develop into main and push
+        run: |
+          git checkout main
+          git merge develop
+          git push origin main --force
+        env:
+          ACCESS_MERGE_TOKEN: ${{ secrets.ACCESS_MERGE_TOKEN }}
+
+
