@@ -1,4 +1,4 @@
-name: Auto Create Pull Request from Develop to Main
+name: Auto PR from Develop to Main
 
 on:
   push:
@@ -15,20 +15,28 @@ jobs:
 
       - name: Set up Git
         run: |
-          git config --local user.name "Ali Mohammadnia"
-          git config --local user.email "alimohammadnia127@gmail.com"
+          git config --local user.name "GitHub Actions Bot"
+          git config --local user.email "actions@github.com"
+
+      - name: Check for Changes Between Develop and Main
+        id: changes
+        run: |
+          git fetch origin main
+          if git diff --quiet develop origin/main; then
+            echo "No changes detected between develop and main."
+            exit 0
+          else
+            echo "Changes detected between develop and main."
+          fi
 
       - name: Create Pull Request from Develop to Main
+        if: steps.changes.outcome == 'success'
         uses: peter-evans/create-pull-request@v4
         with:
-          token: ${{ secrets.ACCESS_MERGE_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           base: main
           head: develop
-          title: "Auto Merge Develop into Main"
+          title: "Sync Develop with Main"
           body: |
-            This pull request is automatically created to merge changes from the `develop` branch into the `main` branch.
+            This pull request was automatically generated to sync changes from the `develop` branch into the `main` branch.
           branch: auto-pr/develop-to-main
-          assignees: "Ali Mohammadnia"
-          reviewers: "Ali Mohammadnia"
-          labels: "auto-generated"
-          draft: false  # Set to true if you want the PR to be created as a draft
