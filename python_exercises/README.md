@@ -59,15 +59,61 @@ print(sorted_dict)
 ---
 
 ## How to Run Task1
+Here's a sample `README.md` file that provides instructions on how to run the `dictionary_depth.py` script and how to run the tests. You can customize it further based on your specific project needs.
 
-1. Clone this repository
-2. Install Python 3.8 or higher
-3. Install the `pytest` package
-4. Run the following command: `pytest tasks/sort_dictionary.py`
+```markdown
+# Dictionary Depth Project
+
+This project contains a Python module for extracting keys from a dictionary along with their respective depths. It also includes a set of unit tests to ensure the functionality of the module.
+
+## Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Running Tests](#running-tests)
+- [Contributing](#contributing)
+- [License](#license)
+
+## Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/behsazan-tasks.git
+   cd behsazan-tasks/python_exercises
+   ```
+
+2. Install the required packages:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+## Usage
+
+To run the `dictionary_depth.py` script, you can use the following command in your terminal:
+
+```bash
+python tasks/dictionary_depth.py
+```
+
+Make sure to modify the script to include any specific input or functionality you want to test.
+
+## Running Tests
+
+To run the unit tests for the `dictionary_depth.py` module, you can use the `unittest` framework. Run the following command in your terminal:
+
+```bash
+python -m unittest discover -s tests
+```
+
+This command will discover and run all the test cases defined in the `tests` directory.
+
+### Test Output
+
+The test results will be displayed in the terminal, indicating which tests passed and which failed. You can also customize the logging output in the test files to provide more detailed information about the test execution.
+
+
 
 ---
-
-
 
 ## Task 2: Save and Load Dictionary from a File
 
