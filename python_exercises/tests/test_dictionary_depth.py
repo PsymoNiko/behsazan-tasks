@@ -1,10 +1,22 @@
 import unittest
-
+import logging
 from tasks.dictionary_depth import extract_keys_with_depth
 
+# Configure logging
+logging.basicConfig(level=logging.INFO, format='%(message)s')
 
 class TestExtractKeysWithDepth(unittest.TestCase):
     
+    def run(self, result=None):
+        # Log the start of the test
+        logging.info(f'Starting test: {self._testMethodName}')
+        super().run(result)
+        # Log the end of the test
+        if result.wasSuccessful():
+            logging.info(f'Test {self._testMethodName} passed.')
+        else:
+            logging.ERROR(f'Test {self._testMethodName} failed.')
+
     def test_flat_dictionary(self):
         json_data = {
             "name": "John",
@@ -14,7 +26,6 @@ class TestExtractKeysWithDepth(unittest.TestCase):
             'name': 0,
             'age': 0
         }
-        
         self.assertEqual(extract_keys_with_depth(json_data), expected_output)
 
     def test_nested_dictionary(self):
@@ -114,4 +125,4 @@ class TestExtractKeysWithDepth(unittest.TestCase):
         self.assertNotEqual(dict(extract_keys_with_depth(json_data)), dict(expected_output))
 
 if __name__ == '__main__':
-    unittest.main()
+    unittest
