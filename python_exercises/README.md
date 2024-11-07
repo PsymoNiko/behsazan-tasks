@@ -3,6 +3,27 @@ This repository contains solutions to various Python exercises.
 
 Base one the question below:
 
+
+## Folded Structur
+
+```
+├── init.py
+├── python_exercise.png
+├── README.md
+├── requirements.txt
+├── tasks
+│   ├── dictionary_depth.py
+│   ├── init.py
+│   └── load_dictionary.py
+├── tests
+│   ├── init.py
+│   └── test_dictionary_depth.py
+└── utils
+├── init.py
+├── utils.json
+└── utils.py
+```
+
 ![alt text](python_exercise.png)
 ---
 # My Python Tasks
@@ -117,6 +138,11 @@ The test results will be displayed in the terminal, indicating which tests passe
 
 ## Task 2: Save and Load Dictionary from a File
 
+
+
+```bash
+python tasks/load_dictionary.py
+```
 
 
 ## How to Run Task2
