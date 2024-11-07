@@ -54,30 +54,3 @@ try:
     print(python_data)
 except Exception as e:
     print(f"Error: {e}")
-
-
-
-
-
-# import importlib.util
-# import sys
-
-# def load_module(module_name, file_path):
-#     spec = importlib.util.spec_from_file_location(module_name, file_path)
-#     module = importlib.util.module_from_spec(spec)
-#     sys.modules[module_name] = module
-#     spec.loader.exec_module(module)
-#     return module
-
-
-# file_path = 'utils/utils.py'
-# # module_name = 'utils.py'
-# module_name = Path(file_path).name
-
-
-
-# loaded_module = load_module(module_name, file_path)
-# my_dict_value = loaded_module.my_dict
-
-# print("032940-2394329-0492-0492-03940-32")
-# print(my_dict_value)
