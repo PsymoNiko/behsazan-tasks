@@ -12,7 +12,8 @@ This repository contains a series of technical exercises designed for a Python d
 - [Setup and Requirements](#setup-and-requirements)
 - [How to Run](#how-to-run)
 
-## Python Exercises
+## [Python Exercises](/python_exercises/README.md)
+
 The `python_exercises/` folder contains solutions to Python programming tasks, focusing on data parsing, file handling, and dictionary manipulation.
 
 ### Task 1: JSON Parsing
