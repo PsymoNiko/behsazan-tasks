@@ -1,0 +1,66 @@
+openapi: 3.0.0
+info:
+  title: FastAPI Service
+  version: 1.0.0
+  description: API documentation for the FastAPI service that provides movie and job information.
+servers:
+  - url: http://127.0.0.1:8000
+paths:
+  /:
+    get:
+      summary: Welcome Message
+      responses:
+        '200':
+          description: A welcome message
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Welcome to the FastAPI service!"
+  /movies:
+    get:
+      summary: Get List of Movies
+      responses:
+        '200':
+          description: A list of movies
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+                  example: "OPPENHEIMER"
+  /jobs/{job_name}:
+    get:
+      summary: Get Job Details
+      parameters:
+        - name: job_name
+          in: path
+          required: true
+          description: The name of the job to retrieve details for
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A list of job details
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    jobName:
+                      type: string
+                      example: "job_1"
+                    runType:
+                      type: string
+                      example: "manual"
+                    runTime:
+                      type: string
+                      example: "2024-02-01 12:00:00"
+        '404':
+          description: Job not found
