@@ -25,7 +25,7 @@ The `python_exercises/` folder contains solutions to Python programming tasks, f
 The `database_exercises/` folder includes SQL tasks aimed at querying and organizing data from a sample customer database.
 
 ### Task 2: Customer and Employee Queries
-- **Description**: SQL scripts that retrieve the highest-value customers and their assigned employees.
+- **Description**: SQL scripts that retrie  ve the highest-value customers and their assigned employees.
 - **File**: `database_exercises/customer_queries.sql`
 - **Usage**: Use an SQL editor or database tool to run these queries.
 
