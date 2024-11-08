@@ -113,3 +113,99 @@ Each service type has its strengths and weaknesses, and the choice between them 
 **FastAPI**، که توسط Sebastián Ramírez توسعه یافته است، یک **web framework** برای ساخت **APIs** در زبان **Python** است. این فریم‌ورک از **Pydantic** برای اعتبارسنجی و سریال‌سازی داده‌ها استفاده می‌کند و به‌طور خودکار مستندات **OpenAPI** را برای **APIs** ایجاد شده با آن تولید می‌کند.
 
 اجزای کلیدی **FastAPI** شامل **Uvicorn** است که یک **server** برای **async frameworks** می‌باشد و **Starlette** که عملکرد غیرهمزمان زیرین را فراهم می‌کند. **FastAPI** به گونه‌ای طراحی شده است که دارای عملکرد بالا و استفاده آسان باشد و برای ساخت برنامه‌های آماده برای تولید مناسب است.
+---
+
+
+
+Here’s a sample `README.md` file that you can use for your FastAPI project. This file includes instructions on how to set up, run the services, and access the API documentation.
+
+
+# FastAPI Movie and Job Service
+
+This is a FastAPI application that provides endpoints to display a welcome message, retrieve a list of movies, and get job execution details based on the job name.
+
+## Table of Contents
+
+- [Features](#features)
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Running the Application](#running-the-application)
+- [API Endpoints](#api-endpoints)
+- [Accessing Documentation](#accessing-documentation)
+- [Running Tests](#running-tests)
+
+## Features
+
+- Display a welcome message.
+- Retrieve a list of movies.
+- Get job execution details based on the job name.
+
+## Requirements
+
+- Python 3.7 or higher
+- FastAPI
+- Uvicorn
+- pytest (for testing)
+
+## Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone <repository-url>
+   cd <repository-directory>
+   ```
+
+2. Create a virtual environment (optional but recommended):
+
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+   ```
+
+3. Install the required packages:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+## Running the Application
+
+To run the FastAPI application, use the following command:
+
+```bash
+uvicorn app.main:app --reload
+```
+
+This will start the server at `http://127.0.0.1:8000`.
+
+## API Endpoints
+
+- **GET /**: Returns a welcome message.
+  - **Response**: `{"message": "Welcome to the FastAPI service!"}`
+
+- **GET /movies**: Returns a list of movies.
+  - **Response**: `["OPPENHEIMER", "KILLERS OF THE FLOWER MOON", "SPIDER-MAN: ACROSS THE SPIDER-VERSE"]`
+
+- **GET /jobs/{job_name}**: Returns job execution details for the specified job name.
+  - **Parameters**:
+    - `job_name`: The name of the job (e.g., `OPPENHEIMER`).
+  - **Response**: A list of job details or an empty list if the job does not exist.
+
+## Accessing Documentation
+
+FastAPI provides interactive API documentation that can be accessed at the following URLs:
+
+- **Swagger UI**: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
+- **ReDoc**: [http://127.0.0.1:8000/redoc](http://127.0.0.1:8000/redoc)
+
+## Running Tests
+
+To run the tests for the application, use the following command:
+
+```bash
+pytest tests/
+```
+
+This will execute the test cases defined in the `tests` directory.
+
