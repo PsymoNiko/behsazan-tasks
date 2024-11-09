@@ -2,16 +2,15 @@ def extract_keys_with_depth(d, depth=0, parent_key=''):
     keys_with_depth = dict()
     
     for key, value in d.items():
-        # Create a full key path using '__' instead of '.'
         full_key = f"{parent_key}__{key}" if parent_key else key
-        keys_with_depth[full_key] = depth  # Add the full key path and its depth
+        keys_with_depth[full_key] = depth
         
-        if isinstance(value, dict):  # If the value is a dictionary
-            keys_with_depth.update(extract_keys_with_depth(value, depth + 1, full_key))  # Recursive call
-        elif isinstance(value, list):  # If the value is a list
+        if isinstance(value, dict):
+            keys_with_depth.update(extract_keys_with_depth(value, depth + 1, full_key))
+        elif isinstance(value, list):
             for item in value:
-                if isinstance(item, dict):  # If the item is a dictionary
-                    keys_with_depth.update(extract_keys_with_depth(item, depth + 1, full_key))  # Recursive call for dictionaries
+                if isinstance(item, dict):
+                    keys_with_depth.update(extract_keys_with_depth(item, depth + 1, full_key))
 
     return keys_with_depth
 
