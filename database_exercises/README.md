@@ -3,7 +3,7 @@
 ![alt text](database_exercises.png)
 ## Overview
 
-This exercise involves querying a database to answer specific questions based on existing tables. The goal is to extract meaningful information regarding customers and their requests.
+This exercise involves querying a database to answer specific questions based on [existing tables](https://www.w3schools.com/sql/trysql.asp?filename=trysql_editor). The goal is to extract meaningful information regarding customers and their requests.
 
 ## Tables
 - **Customers**: Contains information about customers.
