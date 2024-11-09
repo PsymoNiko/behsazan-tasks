@@ -76,13 +76,10 @@ input_dict = {
 sorted_dict = sort_dictionary(input_dict)
 print(sorted_dict)
 ```
-
----
-
 ## How to Run Task1
 Here's a sample `README.md` file that provides instructions on how to run the `dictionary_depth.py` script and how to run the tests. You can customize it further based on your specific project needs.
 
-```markdown
+
 # Dictionary Depth Project
 
 This project contains a Python module for extracting keys from a dictionary along with their respective depths. It also includes a set of unit tests to ensure the functionality of the module.
@@ -92,8 +89,6 @@ This project contains a Python module for extracting keys from a dictionary alon
 - [Installation](#installation)
 - [Usage](#usage)
 - [Running Tests](#running-tests)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Installation
 
@@ -144,5 +139,3 @@ The test results will be displayed in the terminal, indicating which tests passe
 python tasks/load_dictionary.py
 ```
 
-
-## How to Run Task2
