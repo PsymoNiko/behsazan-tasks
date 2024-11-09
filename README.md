@@ -58,6 +58,7 @@ The `airflow/` folder contains documentation and scripts related to Airflow, inc
 To set up the project, make sure you have Python 3.x and `pip` installed. If you are working with FastAPI, install the required packages with:
 
 ```bash
+git clone https://github.com/PsymoNiko/behsazan-tasks.git
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
