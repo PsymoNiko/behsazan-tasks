@@ -9,9 +9,7 @@ This exercise involves querying a database to answer specific questions based on
 - **Customers**: Contains information about customers.
 - **Requests**: Contains details about requests made by customers.
 
-## Objectives
-1. Identify the customer with the highest number of requests.
-2. Retrieve the details of the requests made by this customer.
+
 
 ## Instructions
 1. **Identify the Customer**:
@@ -26,23 +24,40 @@ This exercise involves querying a database to answer specific questions based on
 
 ### Step 1: Identify the Customer with the Most Requests
 ```sql
-SELECT customer_id, COUNT(request_id) AS request_count
-FROM Requests
-GROUP BY customer_id
-ORDER BY request_count DESC
-LIMIT 1;
+SELECT TOP 5 Customers.CustomerID, Customers.CustomerName, SUM(OrderDetails.Quantity) AS TotalQuantity
+FROM Customers, Orders, OrderDetails
+WHERE Customers.CustomerID = Orders.CustomerID
+AND Orders.OrderID = OrderDetails.OrderID
+GROUP BY Customers.CustomerID, Customers.CustomerName
+ORDER BY SUM(OrderDetails.Quantity) DESC;
 ```
 
-### Step 2: Retrieve Requests for the Identified Customer
-Assuming the customer ID obtained from the first query is `X`:
-```sql
-SELECT *
-FROM Requests
-WHERE customer_id = X;
-```
 
 ## Output Format
 - The output should be presented in a structured format, showing all relevant details of the requests made by the identified customer.
 
 ## Conclusion
 By following the above steps, you will be able to extract the necessary information from the database regarding the customer with the highest number of requests and their corresponding details.
+
+
+
+
+```
+SELECT Customers.CustomerID, 
+       Customers.CustomerName, 
+       Employees.EmployeeID, 
+       Employees.LastName, 
+       Employees.FirstName
+FROM (Customers
+      INNER JOIN Orders ON Customers.CustomerID = Orders.CustomerID)
+      INNER JOIN Employees ON Orders.EmployeeID = Employees.EmployeeID
+WHERE Customers.CustomerID = 20;
+
+```
+
+
+
+
+
+
+![alt text](image-1.png)
